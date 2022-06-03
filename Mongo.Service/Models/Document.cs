@@ -13,12 +13,34 @@ namespace Mongo.Domain.Models
         [JsonIgnore]
         public string Id { get; set; }
 
+        [BsonElement(nameof(CreatedBy))]
+        [BsonIgnoreIfNull]
+        [BsonIgnoreIfDefault]
+        [JsonIgnore]
+        public string CreatedBy { get; set; }
+
         [BsonElement(nameof(CreatedDate))]
+        [BsonIgnoreIfNull]
+        [BsonIgnoreIfDefault]
         [JsonIgnore]
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
 
-        [BsonElement(nameof(LastUpdate))]
+        [BsonElement(nameof(ModifiedBy))]
+        [BsonIgnoreIfNull]
+        [BsonIgnoreIfDefault]
         [JsonIgnore]
-        public DateTime LastUpdate { get; set; } = DateTime.UtcNow;
+        public string ModifiedBy { get; set; }
+
+        [BsonElement(nameof(ModifiedDate))]
+        [BsonIgnoreIfNull]
+        [BsonIgnoreIfDefault]
+        [JsonIgnore]
+        public DateTime ModifiedDate { get; set; } = DateTime.UtcNow;
+
+        [BsonElement(nameof(Status))]
+        [BsonIgnoreIfNull]
+        [BsonIgnoreIfDefault]
+        [JsonIgnore]
+        public bool Status { get; set; } = true;
     }
 }

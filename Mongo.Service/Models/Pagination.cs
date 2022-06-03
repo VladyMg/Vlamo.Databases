@@ -2,7 +2,10 @@
 {
     public class Pagination
     {
-        public int pageSize { get; set; } = 100;
-        public int page { get; set; } = 1;
+        public int PageSize { get; set; } = 24;
+
+        public int Page { get; set; } = 1;
+
+        public bool Status { get; set; } = true;
     }
 }

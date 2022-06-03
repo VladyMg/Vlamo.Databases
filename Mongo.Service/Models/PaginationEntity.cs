@@ -4,8 +4,10 @@ namespace Mongo.Domain.Models
 {
     public class PaginationEntity<TDocument> : Pagination
     {
-        public int totalPages { get; set; }
-        public int totalRows { get; set; }
-        public List<TDocument> data { get; set; }
+        public int TotalPages { get; set; }
+
+        public int TotalRows { get; set; }
+
+        public List<TDocument> Data { get; set; }
     }
 }

@@ -55,7 +55,7 @@ namespace Mongo.Service
         public async Task UpdateReplaceDocument(TDocument document, CancellationToken cancellationToken = default)
         {
             var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id, document.Id);
-            document.LastUpdate = DateTime.UtcNow;
+            document.ModifiedDate = DateTime.UtcNow;
             await collection.FindOneAndReplaceAsync(filter, document, cancellationToken: cancellationToken);
         }
 
@@ -75,12 +75,12 @@ namespace Mongo.Service
 
             var totalDocuments = await collection.CountDocumentsAsync(filter);
 
-            var rounded = Math.Ceiling(totalDocuments / Convert.ToDecimal(pagination.pageSize));
+            var rounded = Math.Ceiling(totalDocuments / Convert.ToDecimal(pagination.PageSize));
 
             var totalPages = Convert.ToInt32(rounded);
 
-            pagination.totalPages = totalPages;
-            pagination.totalRows = Convert.ToInt32(totalDocuments);
+            pagination.TotalPages = totalPages;
+            pagination.TotalRows = Convert.ToInt32(totalDocuments);
 
             return pagination;
         }
@@ -93,21 +93,21 @@ namespace Mongo.Service
                 OrderQuery.Asc => collection
                 .Find(filter)
                 .Sort(Builders<TDocument>.Sort.Ascending(sortField))
-                .Skip((pagination.page - 1) * pagination.pageSize)
-                .Limit(pagination.pageSize)
+                .Skip((pagination.Page - 1) * pagination.PageSize)
+                .Limit(pagination.PageSize)
                 .ToListAsync(cancellationToken: cancellationToken),
 
                 OrderQuery.Desc => collection
                 .Find(filter)
                 .Sort(Builders<TDocument>.Sort.Descending(sortField))
-                .Skip((pagination.page - 1) * pagination.pageSize)
-                .Limit(pagination.pageSize)
+                .Skip((pagination.Page - 1) * pagination.PageSize)
+                .Limit(pagination.PageSize)
                 .ToListAsync(cancellationToken: cancellationToken),
 
                 OrderQuery.None => collection
                 .Find(filter)
-                .Skip((pagination.page - 1) * pagination.pageSize)
-                .Limit(pagination.pageSize)
+                .Skip((pagination.Page - 1) * pagination.PageSize)
+                .Limit(pagination.PageSize)
                 .ToListAsync(cancellationToken: cancellationToken),
 
                 _ => throw new NotImplementedException("Error, no se encontró el tipo de orden para la consulta."),
@@ -119,13 +119,13 @@ namespace Mongo.Service
 
             long totalDocuments = totalDocumentsTask.Result;
 
-            var rounded = Math.Ceiling(totalDocuments / Convert.ToDecimal(pagination.pageSize));
+            var rounded = Math.Ceiling(totalDocuments / Convert.ToDecimal(pagination.PageSize));
 
             var totalPages = Convert.ToInt32(rounded);
 
-            pagination.totalPages = totalPages;
-            pagination.totalRows = Convert.ToInt32(totalDocuments);
-            pagination.data = respTask.Result;
+            pagination.TotalPages = totalPages;
+            pagination.TotalRows = Convert.ToInt32(totalDocuments);
+            pagination.Data = respTask.Result;
 
             return pagination;
         }
@@ -138,21 +138,21 @@ namespace Mongo.Service
                 OrderQuery.Asc => collection
                 .Find(filter)
                 .Sort(Builders<TDocument>.Sort.Ascending(sortField))
-                .Skip((pagination.page - 1) * pagination.pageSize)
-                .Limit(pagination.pageSize)
+                .Skip((pagination.Page - 1) * pagination.PageSize)
+                .Limit(pagination.PageSize)
                 .ToListAsync(cancellationToken: cancellationToken),
 
                 OrderQuery.Desc => collection
                 .Find(filter)
                 .Sort(Builders<TDocument>.Sort.Descending(sortField))
-                .Skip((pagination.page - 1) * pagination.pageSize)
-                .Limit(pagination.pageSize)
+                .Skip((pagination.Page - 1) * pagination.PageSize)
+                .Limit(pagination.PageSize)
                 .ToListAsync(cancellationToken: cancellationToken),
 
                 OrderQuery.None => collection
                 .Find(filter)
-                .Skip((pagination.page - 1) * pagination.pageSize)
-                .Limit(pagination.pageSize)
+                .Skip((pagination.Page - 1) * pagination.PageSize)
+                .Limit(pagination.PageSize)
                 .ToListAsync(cancellationToken: cancellationToken),
 
                 _ => throw new NotImplementedException("Error, no se encontró el tipo de orden para la consulta."),
@@ -166,13 +166,13 @@ namespace Mongo.Service
 
             var respOut = mapper.Map<List<TDocument>, List<TResponse>>(respInTask.Result);
 
-            var rounded = Math.Ceiling(totalDocuments / Convert.ToDecimal(pagination.pageSize));
+            var rounded = Math.Ceiling(totalDocuments / Convert.ToDecimal(pagination.PageSize));
 
             var totalPages = Convert.ToInt32(rounded);
 
-            pagination.totalPages = totalPages;
-            pagination.totalRows = Convert.ToInt32(totalDocuments);
-            pagination.data = respOut;
+            pagination.TotalPages = totalPages;
+            pagination.TotalRows = Convert.ToInt32(totalDocuments);
+            pagination.Data = respOut;
 
             return pagination;
         }
