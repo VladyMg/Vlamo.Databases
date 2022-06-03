@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Mongo.Service.Interfaces
+namespace Mongo.Service
 {
     public interface IMongoService<TDocument> where TDocument : IDocument
     {

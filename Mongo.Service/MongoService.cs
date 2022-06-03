@@ -3,7 +3,6 @@ using Microsoft.Extensions.Options;
 using Mongo.Domain.Interfaces;
 using Mongo.Domain.Models;
 using Mongo.Service.Context;
-using Mongo.Service.Interfaces;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
 using System;
