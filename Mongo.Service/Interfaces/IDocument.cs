@@ -8,17 +8,16 @@ namespace Mongo.Domain.Interfaces
     public interface IDocument
     {
 
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        [JsonIgnore]
         public string Id { get; set; }
 
-        [BsonElement(nameof(CreatedDate))]
-        [JsonIgnore]
+        public string CreatedBy { get; set; }
+
         public DateTime CreatedDate { get; set; }
 
-        [BsonElement(nameof(LastUpdate))]
-        [JsonIgnore]
-        public DateTime LastUpdate { get; set; }
+        public string ModifiedBy { get; set; }
+
+        public DateTime ModifiedDate { get; set; }
+
+        public bool Status { get; set; }
     }
 }

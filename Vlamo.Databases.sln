@@ -5,8 +5,6 @@ VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MongoDb", "MongoDb", "{54413B4F-14BB-49ED-B6DB-F8F6A23E7D57}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mongo.Domain", "Mongo.Domain\Mongo.Domain.csproj", "{1A69D41F-79E2-439C-A7A2-917ECE362542}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mongo.Service", "Mongo.Service\Mongo.Service.csproj", "{A08A102E-0246-4EE7-9B76-AE6A5122D9ED}"
 EndProject
 Global
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1A69D41F-79E2-439C-A7A2-917ECE362542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A69D41F-79E2-439C-A7A2-917ECE362542}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A69D41F-79E2-439C-A7A2-917ECE362542}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A69D41F-79E2-439C-A7A2-917ECE362542}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A08A102E-0246-4EE7-9B76-AE6A5122D9ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A08A102E-0246-4EE7-9B76-AE6A5122D9ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A08A102E-0246-4EE7-9B76-AE6A5122D9ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -28,7 +22,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{1A69D41F-79E2-439C-A7A2-917ECE362542} = {54413B4F-14BB-49ED-B6DB-F8F6A23E7D57}
 		{A08A102E-0246-4EE7-9B76-AE6A5122D9ED} = {54413B4F-14BB-49ED-B6DB-F8F6A23E7D57}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

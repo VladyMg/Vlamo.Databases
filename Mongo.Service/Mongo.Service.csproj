@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
 		<PackageId>Vlamo.MongoDb.Service</PackageId>
-		<Version>1.0.1</Version>
+		<Version>2.0.0</Version>
 		<Authors>Vlamo</Authors>
 		<Company>Vlamo</Company>
 		<Product>MongoDb.Service</Product>
@@ -13,8 +13,8 @@
 		<RepositoryUrl>https://github.com/VladyMg/Vlamo.Databases</RepositoryUrl>
 		<PackageTags>mongodb, mongo driver, mongo</PackageTags>
 		<PackageReleaseNotes>Versión inicial para microservicios</PackageReleaseNotes>
-		<AssemblyVersion>22.06.02</AssemblyVersion>
-		<FileVersion>22.06.02</FileVersion>
+		<AssemblyVersion>22.06.02.02</AssemblyVersion>
+		<FileVersion>22.06.02.02</FileVersion>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
