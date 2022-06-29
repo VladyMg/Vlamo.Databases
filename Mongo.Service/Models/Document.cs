@@ -6,6 +6,7 @@ using System;
 
 namespace Mongo.Domain.Models
 {
+    [BsonIgnoreExtraElements]
     public class Document : IDocument
     {
         [BsonId]
